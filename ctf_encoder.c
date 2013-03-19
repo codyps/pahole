@@ -291,7 +291,7 @@ int cu__encode_ctf(struct cu *cu, int verbose)
 			if (verbose)
 				fprintf(stderr,
 					"function %4d: %-20s %#Lx %5u NOT FOUND!\n",
-					id, sym_name, addr,
+					id, sym_name, (long long unsigned)addr,
 					elf_sym__size(&sym));
 			err = ctf__add_function(ctf, 0, 0, 0, &position);
 			if (err != 0)
@@ -334,7 +334,7 @@ int cu__encode_ctf(struct cu *cu, int verbose)
 			if (verbose)
 				fprintf(stderr,
 					"variable %4d: %-20s %#Lx %5u NOT FOUND!\n",
-					id, sym_name, addr,
+					id, sym_name, (long long unsigned)addr,
 					elf_sym__size(&sym));
 			err = ctf__add_object(ctf, 0);
 			if (err != 0)
